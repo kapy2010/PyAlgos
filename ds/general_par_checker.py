@@ -4,23 +4,26 @@ from stack import Stack
 
 def parChecker(symbolString):
     """
-    Simple balanced symbol checker
+    General balanced symbols checker
 
-    Returns true if opening parenthesis balance closing parenthesis
+    Returns true if opening symbols balance closing symbols
     otherwise false
+    symbols = (), [], {}
     """
     s = Stack()
     balanced = True
     index = 0
     while index < len(symbolString) and balanced:
         symbol = symbolString[index]
-        if symbol == '(':
+        if symbol in '[{(':
             s.push(symbol)
         else:
             if s.isEmpty():
                 balanced = False
             else:
-                s.pop()
+                top = s.pop()
+                if not matches(top, symbol):
+                    balanced = False
 
         index += 1
 
@@ -28,6 +31,12 @@ def parChecker(symbolString):
         return True
     else:
         return False
+
+def matches(openSymbol, closeSymbol):
+    opens = "[{("
+    closers = "]})"
+    return opens.index(openSymbol) == closers.index(closeSymbol)
+
 
 
 
