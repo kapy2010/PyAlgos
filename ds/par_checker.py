@@ -3,6 +3,12 @@ sys.path.append(os.path.join(os.getcwd()))
 from stack import Stack
 
 def parChecker(symbolString):
+    """
+    Simple balanced parenthesis checker
+
+    Returns true if opening parenthesis balance closing parenthesis
+    otherwise false
+    """
     s = Stack()
     balanced = True
     index = 0
@@ -23,8 +29,6 @@ def parChecker(symbolString):
     else:
         return False
 
-print parChecker('((()()))')
-print parChecker(')(')
 
 
 
