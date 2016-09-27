@@ -18,14 +18,5 @@ class Stack():
     def size(self):
         return len(self.items)
 
-s = Stack()
 
-print s.isEmpty()
-s.push(4)
-s.push('Car')
-print s.peek()
-print s.size()
-print s.pop()
-print s.pop()
-print s.size()
 
