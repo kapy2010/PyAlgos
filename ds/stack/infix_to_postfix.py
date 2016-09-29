@@ -7,7 +7,6 @@ def infixToPostfix(infixexpr):
     Converts given infix expression to postfix expression
     """
     ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    DIGITS = "0123456789"
     
     postFixList = []
     
@@ -23,7 +22,7 @@ def infixToPostfix(infixexpr):
     tokenList = infixexpr.split()
 
     for token in tokenList:
-        if token in ALPHABETS or token in DIGITS:
+        if token in ALPHABETS or token.isdigit():
             postFixList.append(token)
         elif token == '(':
             opStack.push(token)
